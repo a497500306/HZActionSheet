@@ -10,9 +10,9 @@
 #import "Masonry.h"
 
 const CGFloat kHZCellHeight = 50.f;
-const CGFloat kHZSeparatorHeight = 5.f;
+const CGFloat kHZSeparatorHeight = 0.f;
 const CGFloat kHZAnimationDuration = .2f;
-const CGFloat kHZFontSize = 18.f;
+const CGFloat kHZFontSize = 16.f;
 
 @interface HZActionSheet () <UITableViewDataSource, UITableViewDelegate>
 {
@@ -31,12 +31,12 @@ const CGFloat kHZFontSize = 18.f;
 
 @implementation HZActionSheet
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 - (instancetype)initWithTitle:(NSString *)title delegate:(id<HZActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonIndexSet:(NSIndexSet *)destructiveIndexSet otherButtonTitles:(NSArray *)otherButtonTitles
 {
@@ -74,12 +74,12 @@ const CGFloat kHZFontSize = 18.f;
     _tableView.rowHeight = kHZCellHeight;
     
     _cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _cancleButton.backgroundColor = [UIColor whiteColor];
-    [_cancleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _cancleButton.backgroundColor = [UIColor colorWithRed:254/255.0 green:199/255.0 blue:90/255.0 alpha:1];
+    [_cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
                                                                           attributes:@{
                                                                                        NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
-                                                                                       NSForegroundColorAttributeName: _titleColor,
+                                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                                        }];
     [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     [_cancleButton addTarget:self action:@selector(cancelButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -190,13 +190,21 @@ const CGFloat kHZFontSize = 18.f;
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
                                                                               attributes:@{
                                                                                            NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
-                                                                                           NSForegroundColorAttributeName: _titleColor,
+                                                                                           NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                                            }];
         [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     }
 }
 
 #pragma mark - TableView DataSource & Delegate
+-(nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+-(nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _otherTitles.count;
