@@ -20,6 +20,14 @@
 @property (nonatomic, weak) id<HZActionSheetDelegate> delegate;
 @property (nonatomic, assign, readonly) NSInteger cancelButtonIndex;
 @property (nonatomic, strong) UIColor *titleColor;
+/**
+ 取消背景颜色
+ */
+@property (nonatomic, strong) UIColor *cancleColor;
+/**
+ 取消的文字颜色
+ */
+@property (nonatomic,strong) UIColor *cancleTextColor;
 
 - (instancetype)initWithTitle:(NSString *)title delegate:(id<HZActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonIndexSet:(NSIndexSet *)destructiveIndexSet otherButtonTitles:(NSArray *)otherButtonTitles;
 - (void)showInView:(UIView *)superView;

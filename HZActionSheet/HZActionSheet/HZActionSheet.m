@@ -250,4 +250,19 @@ const CGFloat kHZFontSize = 16.f;
         [_delegate actionSheet:self clickedButtonAtIndex:indexPath.row];
     }
 }
+
+-(void)setCancleColor:(UIColor *)cancleColor{
+    _cancleColor = cancleColor;
+    _cancleButton.backgroundColor = cancleColor;
+}
+-(void)setCancleTextColor:(UIColor *)cancleTextColor{
+    _cancleTextColor = cancleTextColor;
+    [_cancleButton setTitleColor: cancleTextColor forState:UIControlStateNormal];
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
+                                                                          attributes:@{
+                                                                                       NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
+                                                                                       NSForegroundColorAttributeName: [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:0.7],
+                                                                                       }];
+    [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+}
 @end
