@@ -261,7 +261,7 @@ const CGFloat kHZFontSize = 16.f;
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
                                                                           attributes:@{
                                                                                        NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
-                                                                                       NSForegroundColorAttributeName: [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:0.7],
+                                                                                       NSForegroundColorAttributeName: cancleTextColor
                                                                                        }];
     [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
 }
