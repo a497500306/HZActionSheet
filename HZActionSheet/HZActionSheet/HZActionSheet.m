@@ -74,12 +74,12 @@ const CGFloat kHZFontSize = 16.f;
     _tableView.rowHeight = kHZCellHeight;
     
     _cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _cancleButton.backgroundColor = [UIColor colorWithRed:254/255.0 green:199/255.0 blue:90/255.0 alpha:1];
-    [_cancleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _cancleButton.backgroundColor = [UIColor whiteColor];
+    [_cancleButton setTitleColor: [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:0.7] forState:UIControlStateNormal];
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
                                                                           attributes:@{
                                                                                        NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
-                                                                                       NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                       NSForegroundColorAttributeName: [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:0.7],
                                                                                        }];
     [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     [_cancleButton addTarget:self action:@selector(cancelButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -190,7 +190,7 @@ const CGFloat kHZFontSize = 16.f;
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:_cancleTitle
                                                                               attributes:@{
                                                                                            NSFontAttributeName: [UIFont systemFontOfSize:kHZFontSize],
-                                                                                           NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                           NSForegroundColorAttributeName:  [UIColor colorWithRed:44/255.0 green:44/255.0 blue:44/255.0 alpha:0.7],
                                                                                            }];
         [_cancleButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
     }
